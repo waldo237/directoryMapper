@@ -2,7 +2,23 @@ const fs = require('fs');
 const path = require('path');
 
 function dirTree(dir) {
-   const notExcluded =  dir && !dir.includes('node_modules') && !dir.includes('.env') && !dir.includes('\.git') && !dir.includes('access.log')
+   
+    const notExcluded =  
+    dir && !dir.includes('node_modules') 
+    && !dir.includes('.env') 
+    && !dir.includes('\.git') 
+    && !dir.includes('dist') 
+    && !dir.includes('public')
+    && !dir.includes('images')
+    && !dir.includes('static')
+    && !dir.includes('.cache')
+    && !dir.includes('firebase')
+    && !dir.includes('static')
+    && !dir.includes('.png')
+    && !dir.includes('.jpg')
+    && !dir.includes('cache')
+
+
     if (notExcluded) {
         const stats = fs.lstatSync(dir);
         const info = { name: path.basename(dir) };
@@ -30,18 +46,18 @@ function dirTree(dir) {
 };
 
 
-const result = dirTree('./backEnd/');
+const result = dirTree('../Node Mailer');
 result.content = result.content.filter(element => {
     return element != null;
 });
 const project = {
-    title: "WMBackend Node Server",
-    url: "https://github.com/waldo237/waldoMilanesAppBackEnd",
-    description: "This is a NodeJs server that handles all the backend APIs for my personal website. It includes best practices such as proper error handling, rate limiters, proper encryption and hashing, etc.",
-    screenshot: "https://firebasestorage.googleapis.com/v0/b/waldomilanes1.appspot.com/o/waldomilanesbackend.PNG?alt=media&token=441b7b8b-c644-461f-ba2e-0ee9b8b250fc",
+    title: "Real-Time Chat Application",
+    url: "https://github.com/waldo237",
+    description: "This is a node server that features a real-time chat app, it allows teammates to chat internnaly while they are connected to the we app https://teacheip.com/",
+    screenshot: "https://firebasestorage.googleapis.com/v0/b/waldomilanes1.appspot.com/o/1_ovGD0BgtbRTncM4luzTNlQ.jpeg?alt=media&token=221a82b8-4553-4670-b789-82125224230a",
     technology: "node",
     comments: [],
-    date: "2020-05-27T18:59:03.483Z",
+    date: "2020-03-27T18:59:03.483Z",
     rating: [],
     code: {
         dir: []
